@@ -1,0 +1,32 @@
+{
+  "name": "tourist-map",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "preinstall": "npx only-allow pnpm",
+    "start": "next dev -p 3000",
+    "build-dev": "env-cmd -f .env.development next build",
+    "build": "env-cmd -f .env next build",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@svgr/webpack": "^8.0.1",
+    "@types/node": "20.4.4",
+    "@types/react": "18.2.16",
+    "@types/react-dom": "18.2.7",
+    "env-cmd": "^10.1.0",
+    "eslint-config-next": "13.4.12",
+    "i18next": "^23.4.1",
+    "next": "13.4.12",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "styled-components": "^6.0.7",
+    "typescript": "5.1.6"
+  },
+  "devDependencies": {
+    "eslint": "8.45.0",
+    "eslint-config-prettier": "^8.10.0",
+    "eslint-plugin-prettier": "^5.0.0",
+    "prettier": "^3.0.0"
+  }
+}
