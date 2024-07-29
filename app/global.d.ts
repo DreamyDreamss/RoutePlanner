@@ -1,7 +1,7 @@
 declare global {
 	interface Window {
-		initMap: () => void; // google initMap
-		google: any;
+		initMap: () => void; // kakao initMap
+		kakao: any;
 	}
 }
 

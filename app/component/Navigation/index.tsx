@@ -31,21 +31,19 @@ const Navigation = () => {
 	};
 
 	return (
-		<>
-			<Header $scroll={scroll}>
-				<HeaderInner>
-					<StyledNav>
-						<ul>
-							{Object.keys(menuList).map(name => (
-								<Link key={name} target={'_self'} href={`/map/${name}`} passHref>
-									<ItemMenuBar $weight={currentPageName === name ? '600' : '400'}>{menuList[name]}</ItemMenuBar>
-								</Link>
-							))}
-						</ul>
-					</StyledNav>
-				</HeaderInner>
-			</Header>
-		</>
+		<Header $scroll={scroll}>
+			<HeaderInner>
+				<StyledNav>
+					<ul>
+						{Object.keys(menuList).map(name => (
+							<Link key={name} target={'_self'} href={`/map/${name}`} passHref>
+								<ItemMenuBar $selected={currentPageName === name}>{menuList[name]}</ItemMenuBar>
+							</Link>
+						))}
+					</ul>
+				</StyledNav>
+			</HeaderInner>
+		</Header>
 	);
 };
 

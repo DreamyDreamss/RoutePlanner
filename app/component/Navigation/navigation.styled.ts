@@ -10,6 +10,7 @@ export const Header = styled.header<{ $scroll: boolean }>`
 	right: 0px;
 	width: 100%;
 	min-width: 100%;
+	height: 60px;
 
 	display: flex;
 	-webkit-box-pack: center;
@@ -17,43 +18,48 @@ export const Header = styled.header<{ $scroll: boolean }>`
 	-webkit-box-align: center;
 	align-items: center;
 	flex-direction: column;
-	color: #fff;
 
-	background: rgba(22, 22, 22, 0.93);
+	background: transparent;
 `;
 
 export const HeaderInner = styled.div`
 	position: relative;
-	max-width: 1280px;
-	width: 100%;
-	height: 100px;
 	display: flex;
-	-webkit-box-align: center;
-	align-items: center;
-	-webkit-box-pack: justify;
-	justify-content: space-between;
 `;
 
 export const StyledNav = styled.nav`
-	width: 620px;
 	display: flex;
 	flex-direction: row;
 	align-items: center;
 
 	ul {
 		display: flex;
+		width: 100%;
 		flex-direction: row;
 		align-items: center;
-
-		margin-right: 10px;
+		justify-content: space-between;
 	}
 `;
 
-export const ItemMenuBar = styled.li<{ $weight: string }>`
-	list-style-type: none;
-	white-space: nowrap;
-	margin-right: 50px;
-	color: #fff;
-	font-size: 16px;
-	font-weight: ${props => props.$weight};
+export const ItemMenuBar = styled.li<{ $selected: string }>`
+	display: inline-flex;
+	padding: 10px 16px;
+	justify-content: center;
+	align-self: flex-start;
+	flex: 1; /* 동일한 너비를 가지도록 설정 */
+	margin: 0 20px; /* 버튼 사이 간격 조정 */
+	border-radius: 100px;
+
+	border: 1px solid #000;
+	color: ${({ $selected }) => ($selected ? '#fff' : '#000')};
+	background: ${({ $selected }) => ($selected ? '#1976d2' : '#fff')};
+	font-weight: ${({ $selected }) => ($selected ? '700' : '400')};
+	list-style: none; /* li 기본 스타일 제거 */
+	text-align: center;
+	transition: background-color 0.3s;
+
+	&:hover {
+		background: #1976d2;
+		color: #fff;
+	}
 `;
