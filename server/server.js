@@ -1,7 +1,7 @@
 // server/server.js
 const express = require("express");
 const next = require("next");
-const postRoutes = require("./routes/postRoutes");
+const apiRoutes = require("./routes/apiRoutes");
 
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
@@ -10,9 +10,8 @@ const handle = app.getRequestHandler();
 app.prepare().then(() => {
   const server = express();
 
-
   // API 라우터 설정
-  server.use("/api/posts", postRoutes);
+  server.use("/api", apiRoutes);
 
   // // Next.js 요청 처리
   server.all("*", (req, res) => {
