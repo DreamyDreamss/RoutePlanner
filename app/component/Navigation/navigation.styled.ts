@@ -34,14 +34,12 @@ export const StyledNav = styled.nav`
 
 	ul {
 		display: flex;
-		width: 100%;
 		flex-direction: row;
-		align-items: center;
-		justify-content: space-between;
+		gap: 20px;
 	}
 `;
 
-export const ItemMenuBar = styled.li<{ $selected: string }>`
+export const ItemMenuBar = styled.li<{ $selected: boolean }>`
 	display: inline-flex;
 	padding: 10px 16px;
 	justify-content: center;
