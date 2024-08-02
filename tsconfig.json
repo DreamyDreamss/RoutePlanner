@@ -30,8 +30,8 @@
        "@component/*": [
         "./app/component/*"
       ],
-      "@map/*": [
-        "./app/map/*"
+      "@tour/*": [
+        "app/tour/*"
       ],
       "@utils/*": [
         "./app/utils/*"

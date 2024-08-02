@@ -11,6 +11,9 @@ dependencies:
   '@emotion/styled':
     specifier: ^11.13.0
     version: 11.13.0(@emotion/react@11.13.0)(@types/react@18.2.16)(react@18.2.0)
+  '@mui/icons-material':
+    specifier: ^5.16.6
+    version: 5.16.6(@mui/material@5.16.6)(@types/react@18.2.16)(react@18.2.0)
   '@mui/material':
     specifier: ^5.16.6
     version: 5.16.6(@emotion/react@11.13.0)(@emotion/styled@11.13.0)(@types/react@18.2.16)(react-dom@18.2.0)(react@18.2.0)
@@ -41,6 +44,9 @@ dependencies:
   i18next:
     specifier: ^23.4.1
     version: 23.12.2
+  lodash-es:
+    specifier: ^4.17.21
+    version: 4.17.21
   next:
     specifier: 13.4.12
     version: 13.4.12(@babel/core@7.25.2)(react-dom@18.2.0)(react@18.2.0)
@@ -1656,6 +1662,23 @@ packages:
 
   /@mui/core-downloads-tracker@5.16.6:
     resolution: {integrity: sha512-kytg6LheUG42V8H/o/Ptz3olSO5kUXW9zF0ox18VnblX6bO2yif1FPItgc3ey1t5ansb1+gbe7SatntqusQupg==}
+    dev: false
+
+  /@mui/icons-material@5.16.6(@mui/material@5.16.6)(@types/react@18.2.16)(react@18.2.0):
+    resolution: {integrity: sha512-ceNGjoXheH9wbIFa1JHmSc9QVjJUvh18KvHrR4/FkJCSi9HXJ+9ee1kUhCOEFfuxNF8UB6WWVrIUOUgRd70t0A==}
+    engines: {node: '>=12.0.0'}
+    peerDependencies:
+      '@mui/material': ^5.0.0
+      '@types/react': ^17.0.0 || ^18.0.0
+      react: ^17.0.0 || ^18.0.0
+    peerDependenciesMeta:
+      '@types/react':
+        optional: true
+    dependencies:
+      '@babel/runtime': 7.25.0
+      '@mui/material': 5.16.6(@emotion/react@11.13.0)(@emotion/styled@11.13.0)(@types/react@18.2.16)(react-dom@18.2.0)(react@18.2.0)
+      '@types/react': 18.2.16
+      react: 18.2.0
     dev: false
 
   /@mui/material@5.16.6(@emotion/react@11.13.0)(@emotion/styled@11.13.0)(@types/react@18.2.16)(react-dom@18.2.0)(react@18.2.0):
@@ -4070,6 +4093,10 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       p-locate: 5.0.0
+
+  /lodash-es@4.17.21:
+    resolution: {integrity: sha512-mKnC+QJ9pWVzv+C4/U3rRsHapFfHvQFoFB92e52xeyGMcX6/OlIl78je1u8vePzYZSkkogMPJ2yjxxsb89cxyw==}
+    dev: false
 
   /lodash.debounce@4.0.8:
     resolution: {integrity: sha512-FT1yDzDYEoYWhnSGnpE/4Kj1fLZkDFyqRb7fNt6FdYOSxlUWAtp42Eh6Wb0rGIv/m9Bgo7x4GhQbm5Ys4SG5ow==}
