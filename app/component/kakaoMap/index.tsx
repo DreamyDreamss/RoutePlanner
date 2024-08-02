@@ -9,26 +9,23 @@ const KakaoMap = () => {
 		script.async = true;
 		document.head.appendChild(script);
 
-		const onLoadKakaoMap = () => {
+		script.onload = () => {
 			if (window.kakao && window.kakao.maps) {
 				window.kakao.maps.load(() => {
 					const mapContainer = document.getElementById('map');
 					const mapOption = {
-						center: new window.kakao.maps.LatLng(37.3803, 128.6608), // 지도의 중심좌표
-						level: 10, // 지도의 확대 레벨
+						center: new window.kakao.maps.LatLng(37.3803, 128.6608),
+						level: 10,
 					};
-					new window.kakao.maps.Map(mapContainer, mapOption);
+					const mapInstance = new window.kakao.maps.Map(mapContainer, mapOption);
 				});
 			} else {
 				console.error('Kakao Maps API가 로드되지 않았습니다.');
 			}
 		};
-		script.addEventListener('load', onLoadKakaoMap);
 
-		// 클린업 함수로 스크립트 제거
 		return () => {
 			document.head.removeChild(script);
-			script.removeEventListener('load', onLoadKakaoMap);
 		};
 	}, []);
 

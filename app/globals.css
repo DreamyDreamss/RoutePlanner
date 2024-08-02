@@ -78,3 +78,7 @@ a, button{
   cursor: pointer;
 }
 
+:root {
+  --u-primary-color: #2196f3
+;
+}

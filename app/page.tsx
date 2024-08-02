@@ -6,7 +6,7 @@ const Home = () => {
 	const router = useRouter();
 
 	useEffect(() => {
-		router.push(`map`);
+		router.push(`tour/map`);
 	}, [router]);
 
 	return <main></main>;
