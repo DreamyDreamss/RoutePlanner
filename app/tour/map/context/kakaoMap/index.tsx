@@ -18,7 +18,7 @@ export const MapProvider: React.FC<{ children: React.ReactNode }> = ({ children 
 				window.kakao.maps.load(() => {
 					const mapContainer = document.getElementById('map');
 					const mapOption = {
-						center: new window.kakao.maps.LatLng(37.3803, 128.6608),
+						center: new window.kakao.maps.LatLng(33.450701, 126.570677),
 						level: 10,
 					};
 					const mapInstance = new window.kakao.maps.Map(mapContainer, mapOption);

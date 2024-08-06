@@ -15,22 +15,22 @@ export const useMap = () => {
 			if (map) {
 				const { position, imageSrc, imageSize, imageOption } = options;
 
-				let markerImage;
+				let markerImage: any;
 				if (imageSrc && imageSize && imageOption) {
 					const size = new window.kakao.maps.Size(imageSize.width, imageSize.height);
 					const option = new window.kakao.maps.Point(imageOption.offsetX, imageOption.offsetY);
 					markerImage = new window.kakao.maps.MarkerImage(imageSrc, size, { offset: option });
 				}
 
-				const markerPosition = new window.kakao.maps.LatLng(position.lat, position.lng);
-
-				const marker = new window.kakao.maps.Marker({
-					position: markerPosition,
-					image: markerImage,
+				position.map(p => {
+					const markerPosition = new window.kakao.maps.LatLng(p.latlng.lat, p.latlng.lng);
+					const marker = new window.kakao.maps.Marker({
+						position: markerPosition,
+						image: markerImage,
+					});
+					marker.setMap(map);
+					markers.push(marker);
 				});
-
-				marker.setMap(map);
-				markers.push(marker);
 			} else {
 				console.error('지도 인스턴스가 아직 준비되지 않았습니다.');
 			}

@@ -7,12 +7,12 @@ export interface MapContextType {
 	markers: any;
 }
 export interface MarkerPosition {
-	lat: number;
-	lng: number;
+	title: string;
+	latlng: { lat: number; lng: number };
 }
 
 export interface MarkerOptions {
-	position: MarkerPosition | MarkerPosition[];
+	position: MarkerPosition[];
 	imageSrc?: string;
 	imageSize?: { width: number; height: number };
 	imageOption?: { offsetX: number; offsetY: number };
