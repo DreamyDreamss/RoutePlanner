@@ -8,3 +8,8 @@ export const MapContainer = styled.div`
 	width: 100%;
 	height: calc(100vh - ${BottomNavHeight});
 `;
+
+export const MapBox = styled.div`
+	width: 100%;
+	height: 100%;
+`;

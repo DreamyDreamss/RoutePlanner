@@ -1,21 +1,19 @@
 'use client';
 import React from 'react';
-import dynamic from 'next/dynamic';
+import { MapProvider } from '@/app/tour/map/context/kakaoMap';
 import ToolBox from '@/app/tour/map/component/ToolBox';
 import SearchBar from '@/app/tour/map/component/SearchBar';
-import { MapContainer } from './map.styled';
-
-const KakaoMap = dynamic(() => import('@component/kakaoMap'), { ssr: false });
+import { MapContainer, MapBox } from './map.styled';
 
 const MainMap = async () => {
 	return (
-		<>
+		<MapProvider>
 			<MapContainer>
-				<KakaoMap />
+				<MapBox id="map" />
 			</MapContainer>
 			<SearchBar />
 			<ToolBox />
-		</>
+		</MapProvider>
 	);
 };
 

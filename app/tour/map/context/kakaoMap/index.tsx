@@ -1,8 +1,12 @@
-'use client';
-import { useEffect, useState } from 'react';
-import { MapWrapper } from './kakaoMap.styled';
+import React, { createContext, useState, useEffect, Dispatch, SetStateAction } from 'react';
+import { MapContextType } from '@/app/tour/map/types';
 
-const KakaoMap = () => {
+export const MapContext = createContext<MapContextType | undefined>(undefined);
+
+export const MapProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
+	const [map, setMap] = useState<any>(null);
+	const markers: any = [];
+
 	useEffect(() => {
 		const script = document.createElement('script');
 		script.src = `//dapi.kakao.com/v2/maps/sdk.js?appkey=${process.env.NEXT_PUBLIC_KAKAO_MAPS_API_KEY}&autoload=false`;
@@ -18,6 +22,7 @@ const KakaoMap = () => {
 						level: 10,
 					};
 					const mapInstance = new window.kakao.maps.Map(mapContainer, mapOption);
+					setMap(mapInstance);
 				});
 			} else {
 				console.error('Kakao Maps API가 로드되지 않았습니다.');
@@ -27,9 +32,7 @@ const KakaoMap = () => {
 		return () => {
 			document.head.removeChild(script);
 		};
-	}, []);
+	}, [setMap]);
 
-	return <MapWrapper id="map" />;
+	return <MapContext.Provider value={{ map, setMap, markers }}>{children}</MapContext.Provider>;
 };
-
-export default KakaoMap;
