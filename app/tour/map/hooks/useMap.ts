@@ -1,6 +1,7 @@
 import { useContext, useCallback, useState } from 'react';
 import { MapContext } from '@/app/tour/map/context/kakaoMap';
 import { MarkerOptions } from '@/app/tour/map/types';
+import { SlideContainer, CloseButton } from './slide.styled'
 
 export const useMap = () => {
 	const context = useContext(MapContext);
@@ -8,6 +9,10 @@ export const useMap = () => {
 		throw new Error('useMap must be used within a MapProvider');
 	}
 	const { map, setMap, markers } = context;
+
+	//마커 클릭 이벤트 활용 위한 usestate
+	const [isPanelVisible, setPanelVisible] = useState(false);
+	const [panelContent, setPanelContent] = useState('');
 
 	// 공통으로 사용할 마커생성
 	const addMarker = useCallback(
@@ -28,6 +33,13 @@ export const useMap = () => {
 						position: markerPosition,
 						image: markerImage,
 					});
+					
+					//마커 클릭이벤트 추가
+					window.kakao.maps.event.addListener(marker, 'click', () => {
+						setPanelContent(`Marker at ${p.latlng.lat}, ${p.latlng.lng}`);
+						setPanelVisible(true);
+					});
+
 					marker.setMap(map);
 					markers.push(marker);
 				});
@@ -44,5 +56,7 @@ export const useMap = () => {
 		}
 	};
 
-	return { map, setMap, markers, addMarker, handleRemoveMarker };
+	const closePanel = () => setPanelVisible(false);
+
+	return { map, setMap, markers, addMarker, handleRemoveMarker, isPanelVisible, panelContent, closePanel }
 };
