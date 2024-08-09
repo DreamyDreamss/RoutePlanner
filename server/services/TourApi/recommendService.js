@@ -1,14 +1,14 @@
 // server/services/recommendService.js
 const axios = require("axios");
 
-const baseURL = "http://apis.data.go.kr/B551011/KorService1/locationBasedList1";
-const serviceKey = "4iiaFXfQkDFRpTRXWH4MiAsQsNE3ZcOiFUfKKNjBOPXWOIvI/gwUDYNMEjCxM1N8eMNZVUBv15Np3ccEnCu3dw==";
-const getRecommendNearbySpots = async (mapX, mapY) => {
+const baseURL = process.env.TourAPI_BASE_URL;
+const serviceKey = process.env.TourAPI_SERVICE_KEY;
+const getRecommendNearbySpots = async (mapX, mapY,pageNo,numOfRows) => {
   try {
     // 요청할 파라미터 설정
     const params = {
-      numOfRows: 10,
-      pageNo: 1,
+      numOfRows: numOfRows,
+      pageNo: pageNo,
       MobileOS: "ETC",
       MobileApp: "AppTest",
       _type: "json",
@@ -21,7 +21,7 @@ const getRecommendNearbySpots = async (mapX, mapY) => {
       serviceKey: serviceKey
     };
     // API 호출
-    const response = await axios.get(baseURL, { params });
+    const response = await axios.get(`${baseURL}/locationBasedList1`, { params });
     return response.data;
   } catch (error) {
     // 에러 핸들링
@@ -39,5 +39,4 @@ const getRecommendNearbySpots = async (mapX, mapY) => {
     throw new Error("Error fetching recommended nearby spots from external API");
   }
 };
-
-module.exports = { getRecommendNearbySpots };
+module.exports = { getRecommendNearbySpots};
